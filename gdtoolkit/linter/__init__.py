@@ -11,6 +11,7 @@ from . import (
     class_checks,
     design_checks,
     format_checks,
+    navmesh_checks,
     name_checks,
     misc_checks,
 )
@@ -121,6 +122,7 @@ def lint_code(
     problems += class_checks.lint(parse_tree, config)
     problems += basic_checks.lint(parse_tree, config)
     problems += misc_checks.lint(parse_tree, config)
+    problems += navmesh_checks.lint(parse_tree, config)
 
     problems_to_lines_where_they_are_inactive = _fetch_problem_inactivity_lines(
         gdscript_code
